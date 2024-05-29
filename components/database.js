@@ -44,7 +44,6 @@ export const addEvent = async (title, date, number, price) => {
 export const getEvents = async () => {
   const db = await openDatabase();
   const allRows = await db.getAllAsync("SELECT * FROM events");
-  console.log(allRows);
   return allRows;
 };
 
