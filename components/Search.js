@@ -32,11 +32,8 @@ const Search = ({ navigation }) => {
 
   useEffect(() => {
     const filterEvents = async () => {
-      const events = await getEvents();
-      const filteredEvents = events.filter((events) =>
-        events.date.toLowerCase().includes(filter.toLowerCase())
-      );
-      setEvents(filteredEvents);
+      const events = await getEvents(filter);
+      setEvents(events);
     };
     const NotFilter = async () => {
       const events = await getEvents();

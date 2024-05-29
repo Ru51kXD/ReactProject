@@ -41,10 +41,15 @@ export const addEvent = async (title, date, number, price) => {
   );
 };
 
-export const getEvents = async () => {
+export const getEvents = async (search) => {
   const db = await openDatabase();
-  const allRows = await db.getAllAsync("SELECT * FROM events");
-  return allRows;
+  if (search) {
+    return await db.getAllAsync(
+      `SELECT * FROM events WHERE title LIKE '%${search}%' OR price LIKE '%${search}%'`
+    );
+  } else {
+    return await db.getAllAsync("SELECT * FROM events");
+  }
 };
 
 export const addBooking = async (eventId) => {
