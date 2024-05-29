@@ -57,7 +57,6 @@ const Search = ({ navigation }) => {
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Text style={styles.sectionTitle}>Рекомендуемые мероприятия</Text>
         <TextInput
           style={styles.input}
           placeholder="Поиск мероприятий"
@@ -102,6 +101,13 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
+  },
+  input: {
+    height: 40,
+    borderWidth: 5,
+    borderColor: "#ccc",
+    marginBottom: 20,
+    paddingHorizontal: 10,
   },
 });
 

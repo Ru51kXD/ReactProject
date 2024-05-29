@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { getBookings, deleteBooking } from "./database";
 
@@ -29,26 +30,31 @@ const Profile = () => {
   };
 
   return (
-    <View>
-      <FlatList
-        data={bookings}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text>Date: {item.date}</Text>
-            <Text>Number: {item.number}</Text>
-            <Text>Price: {item.price}</Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => handleDeleteBooking(item.id)}
-            >
-              <Text style={styles.buttonText}>Отменить</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
-    </View>
+    <ImageBackground
+      source={require("../assets/Vorota.jpg")}
+      style={styles.backgroundImage}
+    >
+      <View>
+        <FlatList
+          data={bookings}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Text style={styles.title}>{item.title}</Text>
+              <Text>Date: {item.date}</Text>
+              <Text>Number: {item.number}</Text>
+              <Text>Price: {item.price}</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => handleDeleteBooking(item.id)}
+              >
+                <Text style={styles.buttonText}>Отменить</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+      </View>
+    </ImageBackground>
   );
 };
 

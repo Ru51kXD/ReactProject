@@ -6,6 +6,7 @@ import {
   Switch,
   TextInput,
   Button,
+  ImageBackground,
   Alert,
 } from "react-native";
 
