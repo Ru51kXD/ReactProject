@@ -29,7 +29,6 @@ const Home = ({ navigation }) => {
   useEffect(() => {}, [events]);
 
   const handleBookEvent = async (event) => {
-    console.log(event);
     await addBooking(event.id);
   };
 

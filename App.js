@@ -6,14 +6,14 @@ import Search from "./components/Search";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import BookingForm from "./components/BookingForm";
-import { addEvent, createTables } from "./components/database";
+import { addEvent, createTables, RemoveALlEvents } from "./components/database";
 
 const Stack = createStackNavigator();
-
 export default function App() {
   useEffect(() => {
     async function fetchData() {
       await createTables();
+      // await RemoveALlEvents();
       await addEvent("Футбольчик", "2024-01-30", 250, "790");
       await addEvent("Destroyen", "2024-09-30", 250, "790");
       await addEvent("American", "2024-10-30", 250, "790");

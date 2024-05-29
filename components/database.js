@@ -7,17 +7,14 @@ const dbName = "events.db";
 async function openDatabase() {
   const dirInfo = await FileSystem.getInfoAsync(dbDir);
   if (!dirInfo.exists) {
-    console.log("Creating directory:", dbDir);
     await FileSystem.makeDirectoryAsync(dbDir);
   } else {
-    console.log("Directory already exists:", dbDir);
   }
 
   const db = await SQLite.openDatabaseAsync(dbName);
   if (!db) {
     throw new Error("Failed to open database");
   }
-  console.log("Database opened:", dbName);
   return db;
 }
 
@@ -47,12 +44,12 @@ export const addEvent = async (title, date, number, price) => {
 export const getEvents = async () => {
   const db = await openDatabase();
   const allRows = await db.getAllAsync("SELECT * FROM events");
+  console.log(allRows);
   return allRows;
 };
 
 export const addBooking = async (eventId) => {
   const db = await openDatabase();
-  console.log(eventId);
   db.runAsync("INSERT INTO bookings (eventId) VALUES (?)", [eventId]);
 };
 
@@ -61,7 +58,6 @@ export const getBookings = async () => {
   const allRows = await db.getAllAsync(
     "SELECT bookings.id, events.title, events.date, events.number, events.price FROM bookings JOIN events ON bookings.eventId = events.id"
   );
-  console.log(allRows);
   return allRows;
 };
 

@@ -20,7 +20,6 @@ const Profile = () => {
       setBookings(bookings);
     };
     fetchBookings();
-    console.log(bookings);
   }, []);
 
   const handleDeleteBooking = async (id) => {

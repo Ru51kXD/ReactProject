@@ -16,7 +16,7 @@ const Settings = () => {
 
   // Функция для сохранения настроек
   const saveSettings = () => {
-    console.log("Saved settings:", { notificationsEnabled, username });
+    "Saved settings:", { notificationsEnabled, username };
     alert("Настройки сохранены для " + username);
     // Дополнительная логика сохранения настроек
   };
