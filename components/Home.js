@@ -16,7 +16,6 @@ import {
   RemoveALlEvents,
 } from "./database";
 
-
 const Home = ({ navigation }) => {
   const [events, setEvents] = useState([]);
   useEffect(() => {

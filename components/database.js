@@ -23,10 +23,10 @@ async function openDatabase() {
 
 export const createTables = async () => {
   const db = await openDatabase();
-  db.execAsync(
+  await db.execAsync(
     "CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, date TEXT, number INTEGER, price TEXT);"
   );
-  db.execAsync(
+  await db.execAsync(
     "CREATE TABLE IF NOT EXISTS bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, eventId INTEGER, FOREIGN KEY (eventId) REFERENCES events (id));"
   );
 };
